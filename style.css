@@ -1,32 +1,46 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Chilanka', cursive;
     background-image: url("/img/BackgroundLogin.jpg");
     background-repeat:no-repeat;
     background-size: cover;
     background-color: black;
+    color: #AA9E97;
+    font-weight: bolder
 }
 
-input{
+.inputs{
+    font-family: 'Chilanka', cursive;
+    color: #AA9E97;
     margin: 10px;
     text-align: center;
     font-size: 25px;
     border: none;
+    height:40px;
+}
+#rememberMe{
+    font-family: 'Chilanka', cursive;
+    margin: 10px;
+    height: 18 !important;
 }
 
 button{
     margin: 10px;
+    background-color:#C99A48;
     border-radius: 5px;
-    font-size: 25px;
+    font-size: 20px;
     border: none;
-    
-    
+    font-family: 'Chilanka', cursive;
+    width: 95%;
+    height: 40px;
+    align-content: center;
+    font-weight: 600;
 }
 
 p{
     margin: 10px;
     text-align-last: center;
     font-size: 25px;
-    color: rgb(255,255,255);
+    font-weight: bold
 }
 
 .wrapper {
@@ -36,14 +50,15 @@ p{
     position: absolute;
     padding: 2%;
     left: 50%;
-    top: 20%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    
 }
 
 .header{
-    color: aliceblue;
     text-align-last: center;
-    font-size: 30px;    
+    font-size: 30px;  
+    margin-bottom: 15%;  
+}
+.containerRem{
+    font-weight: bold;
 }

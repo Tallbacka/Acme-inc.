@@ -7,16 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
     
 </head>
 
 <body>
-    <h2 class="header">Acme inc.</h2>
+    <header>
+        <h1 class="header">Acme inc.</h1>
+    </header>
     <div class="wrapper">
-        <p class="para">Logga in</p>
-        <div><input type="text" id="inputUserName" placeholder="Anvandarnamn"></div>
-        <div><input type="text" id="inputPassword" placeholder="Losenord"></div>
+        <h2 class="para">Logga in</h2>
+        <div><input type="text" class="inputs" id="inputUserName" placeholder="Anvandarnamn"></div>
+        <div><input type="text" class="inputs" id="inputPassword" placeholder="Losenord"></div>
         <div><button disabled="disabled" id="btnLogin">Logga in...</button></div>
+        <div id="containerRem">
+            <input id="rememberMe" type="checkbox" name="cbRememberMe" id="cbRememberMe">
+            <label for="cbRememberMe">Kom ihag mig!</label>
+        </div>
     </div>
 </body>
 
