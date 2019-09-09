@@ -8,11 +8,16 @@ const wrapper = document.getElementById('wrapper');
 
 // checks if values are still stored in localstorage, if yes the user is passed onto homepage
 document.getElementById("onloadCheckLocalstorage").onload = function () {
+    
+    if (true) {
         if (localStorage.getItem(userKey).length !==null && localStorage.getItem(PassKey).length !==null) {
-                drawHome();
+                    drawHome();
+                    return false                  
         } else {
                 window.location.href = '/index.html';
+                return false;
         }
+    }
 }
             
     // Validates userinput with hardcoded username/password and redirects
