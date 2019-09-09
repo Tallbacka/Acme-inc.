@@ -10,7 +10,7 @@ const header = document.getElementById('header');
 document.getElementById("onloadCheckLocalstorage").onload = function () {
 
     if (true) {
-        if (localStorage.getItem(userKey) !== 0 && localStorage.getItem(PassKey) !== 0) {
+        if (localStorage.getItem(userKey) !== null && localStorage.getItem(PassKey) !== null) {
             removeChildElements(wrapper);
             drawHome();
             return false
@@ -78,9 +78,10 @@ function insertToLocalstorage(userInput, passInput) {
 
 // redirects to index, and clears localstorage
 function logout() {
-    localStorage.removeItem(userKey)
-    localStorage.removeItem(PassKey)
-    removeChildElements(header)
+    localStorage.removeItem(userKey);
+    localStorage.removeItem(PassKey);
+    removeChildElements(header);
+    removeChildElements(wrapper);
     createIndex();
 
 }
@@ -99,8 +100,8 @@ function removeChildElements(parent) {
 
 function createIndex() {
     // header.insertAdjacentHTML('afterbegin', '<h1 id="header">Acme inc.</h1>');
-    wrapper.insertAdjacentHTML('beforeend', '<h2 class="para">Logga in</h2><div><input type="text" id="inputUserName" placeholder="Anvandarnamn">');
-    wrapper.insertAdjacentHTML('beforeend', '<div><input type="text" id="inputPassword" placeholder="Losenord"></div>');
+    wrapper.insertAdjacentHTML('beforeend', '<h2 class="para">Logga in</h2><div><input type="text" id="inputUserName" placeholder="Användarnamn">');
+    wrapper.insertAdjacentHTML('beforeend', '<div><input type="text" id="inputPassword" placeholder="Lösenord"></div>');
     wrapper.insertAdjacentHTML('beforeend', '<div><button onclick="login()">Logga in...</button></div>');
     wrapper.insertAdjacentHTML('beforeend', '<div id="containerRem"><input id="rememberMe" type="checkbox" name="cbRememberMe" id="cbRememberMe"><label for="cbRememberMe">Kom ihag mig!</label></div>');
 }
