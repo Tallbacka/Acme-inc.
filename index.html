@@ -13,18 +13,21 @@
 
 <body id="onloadCheckLocalstorage">
     <header>
-        <h1 class="header">Acme inc.</h1>
+        <h1 id="header">Acme inc.</h1>
     </header>
-    <div class="wrapper">
+    
+    <div id="wrapper">
         <h2 class="para">Logga in</h2>
-        <div><input type="text" class="inputs" id="inputUserName" placeholder="Anvandarnamn"></div>
-        <div><input type="text" class="inputs" id="inputPassword" placeholder="Losenord"></div>
-        <div><button disabled="disabled" id="btnLogin">Logga in...</button></div>
+        <div><input type="text" id="inputUserName" placeholder="Anvandarnamn"></div>
+        <div><input type="text" id="inputPassword" placeholder="Losenord"></div>
+        <div><button onclick="login()">Logga in...</button></div>
         <div id="containerRem">
             <input id="rememberMe" type="checkbox" name="cbRememberMe" id="cbRememberMe">
             <label for="cbRememberMe">Kom ihag mig!</label>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

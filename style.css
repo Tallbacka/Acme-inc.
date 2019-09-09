@@ -8,7 +8,8 @@ body {
     font-weight: 100;
 }
 
-.inputs{
+#inputUserName,
+#inputPassword {
     font-family: 'Permanent Marker', cursive;
     color: #AA9E97;
     margin: 10px;
@@ -42,7 +43,20 @@ p{
     font-weight: bold
 }
 
-.wrapper {
+ul{
+    list-style-type: none;
+    margin-left: -5%;
+    padding: 0;
+    overflow: hidden;
+    float: right;
+}
+
+li{
+    display: inline;
+    font-size: 15px;
+    float: right;
+}
+#wrapper {
     background-color: none;
     text-align: center;
     height: 200px;
@@ -53,7 +67,7 @@ p{
     border-radius: 20px;
 }
 
-.header{
+#header{
     text-align-last: center;
     font-size: 30px;  
     margin-bottom: 10%;
