@@ -7,7 +7,7 @@ const wrapper = document.getElementById('wrapper');
 const header = document.getElementById('header');
 
 // checks if values are still stored in localstorage, if yes the user is passed onto homepage
-document.getElementById("onloadCheckLocalstorage").onload = function () {
+document.getElementById("body").onload = function () {
     if (true) {
         if (localStorage.getItem(userKey) !== null && localStorage.getItem(PassKey) !== null) {
             removeChildElements(wrapper);
@@ -15,7 +15,6 @@ document.getElementById("onloadCheckLocalstorage").onload = function () {
             return false
         } else {
             removeChildElements(wrapper);
-            removeChildElements(header);
             createIndex();
             return false;
         }
@@ -51,22 +50,18 @@ function login() {
 
 // removes all the childnodes in the wrapper div, and draw new elements for homepage
 function drawHome() {
-    var ul = document.createElement('ul');
-    var li = document.createElement('li');
     var a = document.createElement('a');
     a.setAttribute('href', 'javascript:logout()');
     a.textContent = "Logga ut";
-    li.appendChild(a);
-    ul.appendChild(li);
-    header.appendChild(ul)
-    
+    header.append(a);
+
     var h2 = document.createElement('h2');
     var h3 = document.createElement('h3');
     h2.textContent = "Välkommen";
     h3.textContent = "Kolla in ett klipp av vår media produktion!!"
     wrapper.appendChild(h2);
     wrapper.appendChild(h3);
-    
+
     var iframe = document.createElement('iframe')
     iframe.width = "560";
     iframe.height = "315";
@@ -99,14 +94,14 @@ function logout() {
     localStorage.removeItem(userKey);
     localStorage.removeItem(PassKey);
     removeChildElements(header);
-    removeChildElements(wrapper)
+    removeChildElements(wrapper);
+    header.innerText = "Acme Inc.";
     createIndex();
 }
 
 // redirects to index page
 function tryAgain() {
     removeChildElements(wrapper);
-    removeChildElements(header);
     createIndex();
 }
 
@@ -119,7 +114,6 @@ function removeChildElements(parent) {
 
 // Creates the index/loginpage
 function createIndex() {
-    header.insertAdjacentHTML('afterbegin', '<h1>Acme Inc.</h1>');
     wrapper.insertAdjacentHTML('beforeend', '<h2 class="para">Logga in</h2><div><input type="text" id="inputUserName" placeholder="Användarnamn">');
     wrapper.insertAdjacentHTML('beforeend', '<div><input type="text" id="inputPassword" placeholder="Lösenord"></div>');
     wrapper.insertAdjacentHTML('beforeend', '<div><button id = "btnLogin" onclick="login()">Logga in...</button></div>');
