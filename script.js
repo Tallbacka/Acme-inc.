@@ -8,7 +8,6 @@ const header = document.getElementById('header');
 
 // checks if values are still stored in localstorage, if yes the user is passed onto homepage
 document.getElementById("onloadCheckLocalstorage").onload = function () {
-
     if (true) {
         if (localStorage.getItem(userKey) !== null && localStorage.getItem(PassKey) !== null) {
             removeChildElements(wrapper);
@@ -23,7 +22,17 @@ document.getElementById("onloadCheckLocalstorage").onload = function () {
     }
 }
 
-// Validates userinput with hardcoded username/password and redirects
+// Eventlistener that checks if enter is pressed and call the login function
+document.body.addEventListener('keyup', function (e) {
+    var btnLogin = document.getElementById('btnLogin');
+
+    if (e.keyCode == 13) {
+        btnLogin.click();
+        login();
+    }
+});
+
+// Validates userinput with hardcoded username/password and redirects to home
 function login() {
     var userInput = document.getElementById('inputUserName').value;
     var passInput = document.getElementById('inputPassword').value;
@@ -42,24 +51,28 @@ function login() {
     }
 }
 
-// removes al the childnodes in the wrapper div, and draw new elements for homepage
+// removes all the childnodes in the wrapper div, and draw new elements for homepage
 function drawHome() {
-    var h1 = document.createElement('h1');
+    var h2 = document.createElement('h2');
     var h3 = document.createElement('h3');
     var ul = document.createElement('ul');
     var li = document.createElement('li');
     var a = document.createElement('a');
-    // var youtub = 
-    // https://youtu.be/Jd_41tM6H2Y
+    var iframe = document.createElement('iframe')
+    iframe.width = "560";
+    iframe.height = "315";
+    iframe.src = "https://www.youtube.com/embed/Jd_41tM6H2Y";
+    iframe.frameBorder = "0"
     a.setAttribute('href', 'javascript:logout()');
     a.textContent = "Logga ut";
-    h1.textContent = "Välkommen";
+    h2.textContent = "Välkommen";
     h3.textContent = "Kolla in ett klipp av vår media produktion!!"
     li.appendChild(a);
     ul.appendChild(li);
     header.appendChild(ul)
-    wrapper.appendChild(h1);
+    wrapper.appendChild(h2);
     wrapper.appendChild(h3);
+    wrapper.appendChild(iframe);
 }
 
 //Draws the not validated screen
@@ -88,7 +101,6 @@ function logout() {
     removeChildElements(header);
     removeChildElements(wrapper)
     createIndex();
-
 }
 
 // redirects to index page
@@ -98,15 +110,18 @@ function tryAgain() {
     createIndex();
 }
 
+// Removes all the childnodes of a parent element
 function removeChildElements(parent) {
     while (parent.hasChildNodes()) {
         parent.removeChild(parent.lastChild);
     }
 }
+
+// Creates the index/loginpage
 function createIndex() {
     header.insertAdjacentHTML('afterbegin', '<h1>Acme Inc.</h1>');
     wrapper.insertAdjacentHTML('beforeend', '<h2 class="para">Logga in</h2><div><input type="text" id="inputUserName" placeholder="Användarnamn">');
     wrapper.insertAdjacentHTML('beforeend', '<div><input type="text" id="inputPassword" placeholder="Lösenord"></div>');
-    wrapper.insertAdjacentHTML('beforeend', '<div><button onclick="login()">Logga in...</button></div>');
+    wrapper.insertAdjacentHTML('beforeend', '<div><button id = "btnLogin" onclick="login()">Logga in...</button></div>');
     wrapper.insertAdjacentHTML('beforeend', '<div id="containerRem"><input id="rememberMe" type="checkbox" name="cbRememberMe" id="cbRememberMe"><label for="cbRememberMe">Kom ihag mig!</label></div>');
 }

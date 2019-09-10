@@ -17,6 +17,8 @@ body {
     font-size: 25px;
     border: none;
     height:40px;
+    border-radius: 5px;
+    
 }
 #rememberMe{
     margin: 10px;
@@ -57,12 +59,15 @@ ul{
 li{
     display: inline;
     font-size: 15px;
-    float: right;
+}
+
+h2{
+  margin-top: 0;  
 }
 #wrapper {
     background-color: #77D5EA;
     text-align: center;
-    height: 350px;
+    height: auto;
     position: absolute;
     padding: 2%;
     left: 50%;
@@ -77,6 +82,6 @@ header{
     font-weight: 50;
     padding: 0;
 }
-.containerRem{
+/* .containerRem{
     font-weight: bold;
-}
+} */
