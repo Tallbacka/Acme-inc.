@@ -25,9 +25,7 @@ document.getElementById("onloadCheckLocalstorage").onload = function () {
 // Eventlistener that checks if enter is pressed and call the login function
 document.body.addEventListener('keyup', function (e) {
     var btnLogin = document.getElementById('btnLogin');
-
     if (e.keyCode == 13) {
-        btnLogin.click();
         login();
     }
 });
@@ -53,25 +51,27 @@ function login() {
 
 // removes all the childnodes in the wrapper div, and draw new elements for homepage
 function drawHome() {
-    var h2 = document.createElement('h2');
-    var h3 = document.createElement('h3');
     var ul = document.createElement('ul');
     var li = document.createElement('li');
     var a = document.createElement('a');
+    a.setAttribute('href', 'javascript:logout()');
+    a.textContent = "Logga ut";
+    li.appendChild(a);
+    ul.appendChild(li);
+    header.appendChild(ul)
+    
+    var h2 = document.createElement('h2');
+    var h3 = document.createElement('h3');
+    h2.textContent = "Välkommen";
+    h3.textContent = "Kolla in ett klipp av vår media produktion!!"
+    wrapper.appendChild(h2);
+    wrapper.appendChild(h3);
+    
     var iframe = document.createElement('iframe')
     iframe.width = "560";
     iframe.height = "315";
     iframe.src = "https://www.youtube.com/embed/Jd_41tM6H2Y";
     iframe.frameBorder = "0"
-    a.setAttribute('href', 'javascript:logout()');
-    a.textContent = "Logga ut";
-    h2.textContent = "Välkommen";
-    h3.textContent = "Kolla in ett klipp av vår media produktion!!"
-    li.appendChild(a);
-    ul.appendChild(li);
-    header.appendChild(ul)
-    wrapper.appendChild(h2);
-    wrapper.appendChild(h3);
     wrapper.appendChild(iframe);
 }
 
