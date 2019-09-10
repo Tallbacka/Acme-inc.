@@ -16,8 +16,8 @@ document.getElementById("onloadCheckLocalstorage").onload = function () {
             return false
         } else {
             removeChildElements(wrapper);
-            createIndex(wrapper);
-            // window.location.href = '/index.html';
+            removeChildElements(header);
+            createIndex();
             return false;
         }
     }
@@ -45,16 +45,21 @@ function login() {
 // removes al the childnodes in the wrapper div, and draw new elements for homepage
 function drawHome() {
     var h1 = document.createElement('h1');
+    var h3 = document.createElement('h3');
     var ul = document.createElement('ul');
     var li = document.createElement('li');
     var a = document.createElement('a');
+    // var youtub = 
+    // https://youtu.be/Jd_41tM6H2Y
     a.setAttribute('href', 'javascript:logout()');
     a.textContent = "Logga ut";
     h1.textContent = "Välkommen";
+    h3.textContent = "Kolla in ett klipp av vår media produktion!!"
     li.appendChild(a);
     ul.appendChild(li);
     header.appendChild(ul)
     wrapper.appendChild(h1);
+    wrapper.appendChild(h3);
 }
 
 //Draws the not validated screen
@@ -81,7 +86,7 @@ function logout() {
     localStorage.removeItem(userKey);
     localStorage.removeItem(PassKey);
     removeChildElements(header);
-    removeChildElements(wrapper);
+    removeChildElements(wrapper)
     createIndex();
 
 }
@@ -89,6 +94,7 @@ function logout() {
 // redirects to index page
 function tryAgain() {
     removeChildElements(wrapper);
+    removeChildElements(header);
     createIndex();
 }
 
@@ -97,9 +103,8 @@ function removeChildElements(parent) {
         parent.removeChild(parent.lastChild);
     }
 }
-
 function createIndex() {
-    // header.insertAdjacentHTML('afterbegin', '<h1 id="header">Acme inc.</h1>');
+    header.insertAdjacentHTML('afterbegin', '<h1>Acme Inc.</h1>');
     wrapper.insertAdjacentHTML('beforeend', '<h2 class="para">Logga in</h2><div><input type="text" id="inputUserName" placeholder="Användarnamn">');
     wrapper.insertAdjacentHTML('beforeend', '<div><input type="text" id="inputPassword" placeholder="Lösenord"></div>');
     wrapper.insertAdjacentHTML('beforeend', '<div><button onclick="login()">Logga in...</button></div>');
