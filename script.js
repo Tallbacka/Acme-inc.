@@ -9,7 +9,7 @@ const header = document.getElementById('header');
 // checks if values are still stored in localstorage, if yes the user is passed onto homepage
 document.getElementById("body").onload = function () {
     if (true) {
-        if (localStorage.getItem(userKey) !== null && localStorage.getItem(PassKey) !== null) {
+        if (localStorage.getItem(userKey) === userName && localStorage.getItem(PassKey) === password) {
             removeChildElements(wrapper);
             drawHome();
             return false
