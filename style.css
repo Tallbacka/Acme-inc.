@@ -1,6 +1,6 @@
 body {
     font-family: 'Permanent Marker', cursive;
-    background-image: url("/img/BackgroundLogin.jpg");
+    background-image: url("img/BackgroundLogin.jpg");
     background-repeat:no-repeat;
     background-size: cover;
     background-color: black;
@@ -18,6 +18,9 @@ body {
     border: none;
     height:40px;
     border-radius: 5px;
+    
+}
+#InputPassword{
     
 }
 
