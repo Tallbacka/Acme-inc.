@@ -23,13 +23,12 @@ document.getElementById("body").onload = function () {
 
 // Eventlistener that checks if enter is pressed and call the login function
 document.body.addEventListener('keyup', function (e) {
-    var btnLogin = document.getElementById('btnLogin');
     if (e.keyCode == 13) {
         login();
     }
 });
 
-// Validates userinput with hardcoded username/password and redirects to home
+// Validates userinput with hardcoded username/password and/Or redirects to home/Notvalidated
 function login() {
     var userInput = document.getElementById('inputUserName').value;
     var passInput = document.getElementById('inputPassword').value;
@@ -48,7 +47,7 @@ function login() {
     }
 }
 
-// removes all the childnodes in the wrapper div, and draw new elements for homepage
+// Draw new elements for homepage
 function drawHome() {
     var a = document.createElement('a');
     a.setAttribute('href', 'javascript:logout()');
@@ -74,7 +73,6 @@ function drawHome() {
 function drawNotValidated() {
     var h1 = document.createElement('h1');
     h1.textContent = "Fel vid inloggning";
-    h1.setAttribute('class', 'note');
     var button = document.createElement('button')
     button.textContent = "Prova igen"
     button.setAttribute('id', 'btnTryAgain');
@@ -89,17 +87,17 @@ function insertToLocalstorage(userInput, passInput) {
     localStorage.setItem(PassKey, passInput)
 }
 
-// redirects to index, and clears localstorage
+// Redirects to index, and clears localstorage
 function logout() {
     localStorage.removeItem(userKey);
     localStorage.removeItem(PassKey);
     removeChildElements(header);
     removeChildElements(wrapper);
-    header.innerText = "Acme Inc.";
+    header.innerText = "Acme Inc."; //Hotfix
     createIndex();
 }
 
-// redirects to index page
+// Removes child elements in wrapper and redirects to index page
 function tryAgain() {
     removeChildElements(wrapper);
     createIndex();
@@ -115,7 +113,7 @@ function removeChildElements(parent) {
 // Creates the index/loginpage
 function createIndex() {
     wrapper.insertAdjacentHTML('beforeend', '<h2 class="para">Logga in</h2><div><input type="text" id="inputUserName" placeholder="Användarnamn">');
-    wrapper.insertAdjacentHTML('beforeend', '<div><input type="text" id="inputPassword" placeholder="Lösenord"></div>');
+    wrapper.insertAdjacentHTML('beforeend', '<div><input type="password" id="inputPassword" placeholder="Lösenord"></div>');
     wrapper.insertAdjacentHTML('beforeend', '<div><button id = "btnLogin" onclick="login()">Logga in...</button></div>');
     wrapper.insertAdjacentHTML('beforeend', '<div id="containerRem"><input id="rememberMe" type="checkbox" name="cbRememberMe" id="cbRememberMe"><label for="cbRememberMe">Kom ihag mig!</label></div>');
 }
