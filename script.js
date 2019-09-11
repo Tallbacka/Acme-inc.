@@ -28,7 +28,7 @@ document.body.addEventListener('keyup', function (e) {
     }
 });
 
-// Validates userinput with hardcoded username/password and redirects to home
+// Validates userinput with hardcoded username/password and/Or redirects to home/Notvalidated
 function login() {
     var userInput = document.getElementById('inputUserName').value;
     var passInput = document.getElementById('inputPassword').value;
@@ -47,7 +47,7 @@ function login() {
     }
 }
 
-// removes all the childnodes in the wrapper div, and draw new elements for homepage
+// Draw new elements for homepage
 function drawHome() {
     var a = document.createElement('a');
     a.setAttribute('href', 'javascript:logout()');
@@ -73,7 +73,6 @@ function drawHome() {
 function drawNotValidated() {
     var h1 = document.createElement('h1');
     h1.textContent = "Fel vid inloggning";
-    // h1.setAttribute('class', 'note');
     var button = document.createElement('button')
     button.textContent = "Prova igen"
     button.setAttribute('id', 'btnTryAgain');
@@ -88,7 +87,7 @@ function insertToLocalstorage(userInput, passInput) {
     localStorage.setItem(PassKey, passInput)
 }
 
-// redirects to index, and clears localstorage
+// Redirects to index, and clears localstorage
 function logout() {
     localStorage.removeItem(userKey);
     localStorage.removeItem(PassKey);
@@ -98,7 +97,7 @@ function logout() {
     createIndex();
 }
 
-// redirects to index page
+// Removes child elements in wrapper and redirects to index page
 function tryAgain() {
     removeChildElements(wrapper);
     createIndex();
